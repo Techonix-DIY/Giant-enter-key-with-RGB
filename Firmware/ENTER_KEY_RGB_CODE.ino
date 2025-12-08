@@ -46,18 +46,18 @@ void loop() {
 }
 
 void runWarmGradientAnimation() {
-  const int tail = 2; // تعداد پیکسل‌های دنباله
+  const int tail = 2;
 
   for (int i = 0; i < NUM_LEDS + tail; i++) {
     FastLED.clear();
 
-    // hue از نارنجی (حدود 25) تا قرمز (حدود 0)
+    
     uint8_t hue = map(i, 0, NUM_LEDS, 25, 0);
-    // اشباع از 180 تا 255 (هرچه جلوتر می‌ره، رنگ گرم‌تر می‌شه)
+    
     uint8_t sat = map(i, 0, NUM_LEDS, 180, 255);
 
-    CRGB color = CHSV(hue, sat, 255); // روشنایی ثابت = 255
-
+    CRGB color = CHSV(hue, sat, 255); 
+    
     for (int j = 0; j < tail; j++) {
       int index = i - j;
       if (index >= 0 && index < NUM_LEDS) {
@@ -66,7 +66,7 @@ void runWarmGradientAnimation() {
     }
 
     FastLED.show();
-    delay(30); // سرعت حرکت
+    delay(30); 
   }
 
   FastLED.clear();
